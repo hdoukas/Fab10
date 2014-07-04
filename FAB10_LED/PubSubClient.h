@@ -371,7 +371,8 @@ bool PubSubClient::subscribe(char* topic, uint8_t qos) {
       buffer[length++] = (nextMsgId >> 8);
       buffer[length++] = (nextMsgId & 0xFF);
       length = writeString(topic, buffer,length);
-     
+      
+      
       buffer[length++] = qos;
       return write(MQTTSUBSCRIBE|MQTTQOS1,buffer,length-5);
    }
