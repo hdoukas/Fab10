@@ -113,9 +113,9 @@ String updateSensor(String stream, String channel1, String value1, String channe
     json.concat(channel1);
     json.concat("\": {\"current-value\": \"");
     json.concat(value1);
-    json.concat("\"}}, {\"");
+    json.concat("\"}, \"");
     json.concat(channel2);
-    json.concat("\", {\"current-value\": \"");
+    json.concat("\": {\"current-value\": \"");
     json.concat(value2);
     json.concat("\"}}, \"lastUpdate\": ");
     json.concat(Time.now());
