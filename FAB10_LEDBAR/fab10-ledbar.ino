@@ -4,6 +4,8 @@
 #define auth_token  "XXXXYYY"
 #define SO_ID "XXXXX"
 
+int led2 = D7;
+
 //byte broker_ip[] = {  147, 83, 30, 150 };
 byte broker_ip[] = {  83, 212, 96, 61 };
 
@@ -26,6 +28,8 @@ TCPClient tcpClient;
 PubSubClient client(broker_ip, 1883, callback, tcpClient);
 
 void setup() {
+
+    pinMode(led2, OUTPUT);
     
     Serial.begin(9600);
     
@@ -41,6 +45,7 @@ void setup() {
         
         Serial.print(F("Connected and subscribed: "));
         Serial.println(stat);
+        digitalWrite(led2, HIGH);
     }
     
     else {

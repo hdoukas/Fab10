@@ -7,6 +7,7 @@
 byte broker_ip[] = {  83, 212, 96, 61 };
 
 int led  = D5;
+int led2 = D7;
 
 void callback(char* topic, byte* payload, unsigned int length) {
     
@@ -27,6 +28,7 @@ void setup() {
     delay(2000);
     
     pinMode(led, OUTPUT);
+    pinMode(led2, OUTPUT);
     
     
     Serial.println(F("connecting to broker and subscribing..."));
@@ -36,6 +38,7 @@ void setup() {
         
         Serial.print(F("Connected and subscribed: "));
         Serial.println(stat);
+        digitalWrite(led2, HIGH);
     }
     
     else {
